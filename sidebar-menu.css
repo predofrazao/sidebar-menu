@@ -1,0 +1,60 @@
+.sidebar-menu {
+  position: fixed;
+  max-width: fit-content;
+  height: 100%;
+  background: #f8f8f8;
+  padding: 2rem;
+  font-size: 1.25rem;
+  overflow: hidden auto;
+}
+
+.sidebar-menu > #sidebar-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.sidebar-menu > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+}
+
+.sidebar-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem calc(1.25rem * 1.33);
+  border-radius: 0.25rem;
+  transition: background 0.3s;
+}
+
+.sidebar-menu-item:hover {
+  background: #dedede;
+}
+
+.sidebar-menu-item-dropdown[aria-expanded="true"] {
+  background-color: #dedede;
+}
+
+.sidebar-menu-item-dropdown::after {
+  content: "";
+  background: url("./img/caret-down-solid.svg") center center no-repeat;
+  width: 14px;
+  height: 14px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.sidebar-menu-item-dropdown[aria-expanded="true"]::after {
+  transform: rotate(-180deg);
+}
+
+.sidebar-menu-item-dropdown + ul {
+  padding-left: 0.5rem;
+  height: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
